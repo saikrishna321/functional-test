@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "inlineSourceMap": true,
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "target": "ES2016",
+    "types": ["node", "jest"]
+  }
+}
