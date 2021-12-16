@@ -8,7 +8,16 @@
     "fix-format": "npx prettier --write .",
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint . --fix",
+    "install-cm": "curl -s https://aerokube.com/cm/bash | bash",
+    "selenoid:download": "./cm selenoid download",
+    "selenoid:configure": "./cm selenoid configure --browsers chrome:96.0 -f",
+    "selenoid:start": "./cm selenoid start",
+    "selenoid:stop": "./cm selenoid stop",
+    "selenoid:cleanup": "./cm selenoid cleanup",
+    "pretest": "npm run selenoid:download && npm run selenoid:configure && npm run selenoid:start",
+    "aftertest": "npm run selenoid:cleanup && npm run selenoid:stop && npm run selenoid:cleanup",
     "web": "npx wdio ./src/config/local/wdio.web.conf.js",
+    "web:docker": "npx wdio ./src/config/local/wdio.web.docker.conf.js && npm run aftertest",
     "android": "npx wdio ./src/config/local/wdio.android.conf.js",
     "ios": "npx wdio ./src/config/local/wdio.ios.conf.js",
     "cloud:android": "npx wdio ./src/config/cloud/wdio.bs.android.conf.js",
@@ -36,7 +45,7 @@
     "wdio-chromedriver-service": "^7.0.0",
     "wdio-timeline-reporter": "^5.1.4",
     "webdriverio": "^7.3.0",
-    "utils": "1.0.0"
+    "sc-utils": "1.0.0"
   },
   "author": "",
   "license": "ISC"

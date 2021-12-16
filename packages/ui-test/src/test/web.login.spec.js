@@ -1,6 +1,6 @@
 import { LoginPage } from '../pages/web/login/login.page';
 import { MainPage } from '../pages/web/wealth/main.page';
-import { Beta } from 'utils';
+import { Beta } from 'sc-utils';
 
 describe('Web Test', () => {
   it('Test Login', async () => {
