@@ -13,7 +13,7 @@
 * Install docker
 * npm run build
 * npm run test:ui:web:docker
-* 
+* *
 ```
 
 
