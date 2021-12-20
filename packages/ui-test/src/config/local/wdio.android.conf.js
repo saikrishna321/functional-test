@@ -17,11 +17,10 @@ const droidConf = {
       'appium',
       {
         command: 'appium',
-        'basePath': "/wd/hub",
-        logPath: logPath,
+        basePath: '/wd/hub',
         args: {
           debugLogSpacing: true,
-          logLevel: 'debug',
+          logLevel: 'info',
         },
       },
     ],

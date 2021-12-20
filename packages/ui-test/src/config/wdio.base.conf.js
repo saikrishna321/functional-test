@@ -42,7 +42,6 @@ exports.config = {
   waitforTimeout: waitTimeout,
   connectionRetryTimeout: retryTimeout,
   connectionRetryCount: retryCount,
-  outputDir: logPath,
 
   framework: 'mocha',
   mochaOpts: {

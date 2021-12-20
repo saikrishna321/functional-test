@@ -17,17 +17,19 @@ const selectors = {
 /**
  * @return {string} Alert text.
  */
-function getAlertText() {
+async function getAlertText() {
   return driver.isIOS
     ? driver.getAlertText()
-    : `${$(selectors.title).getText()}\n${$(selectors.message).getText()}`;
+    : `${await $(selectors.title).getText()}\n${await $(
+        selectors.message
+      ).getText()}`;
 }
 
 export const AlertPopup = {
-  pressButton(button) {
-    if ($(selectors.title).isDisplayed()) {
-      const message = getAlertText().trim();
-      $(selectors.button(button)).click();
+  async pressButton(button) {
+    if (await $(selectors.title).isDisplayed()) {
+      const message = (await getAlertText()).trim();
+      await $(selectors.button(button)).click();
       return message;
     }
     return undefined;

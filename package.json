@@ -12,6 +12,7 @@
     "test:ui:web:docker:setup": "lerna exec --scope ui-test npm run pretest",
     "test:ui:web": "lerna exec --scope ui-test npm run web",
     "test:ui:android": "lerna exec --scope ui-test npm run android",
+    "test:bff:schema": "lerna exec --scope bff-test npm run test-schema",
     "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,css,scss,md}' --write --single-quote",
     "test": "lerna run test -- ",
     "prepare": "husky install"

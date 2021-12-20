@@ -1,4 +1,4 @@
-import { LoginPage } from '../login/login.page';
+import AppScreen from '../AppScreen';
 
 const selectors = {
   home: {
@@ -23,21 +23,22 @@ const selectors = {
   },
 };
 
-export const BasePage = {
+export default class BasePage extends AppScreen {
+
   openHome() {
     $(selectors.home).click();
-  },
+  }
   openWebView() {
     $(selectors.webView).click();
-  },
-  openLogin() {
-    $(selectors.login).click();
-    return LoginPage;
-  },
+  }
+  async openLogin() {
+    await this.waitForIsShown();
+    await $(selectors.login).click();
+  }
   openForm() {
     $(selectors.form).click();
-  },
+  }
   openSwipe() {
     $(selectors.swipe).click();
-  },
-};
+  }
+}

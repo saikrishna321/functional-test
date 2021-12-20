@@ -1,0 +1,21 @@
+{
+  "name": "bff-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-schema": "mocha --require ts-node/register src/__tests__/*.spec.js --timeout=5000"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "mocha": "^8.3.0",
+    "chai": "^4.3.3"
+  },
+  "dependencies": {
+    "ts-node": "^9.1.1",
+    "graphql": "^15.5.0",
+    "node-fetch": "^1.6.3"
+  }
+}

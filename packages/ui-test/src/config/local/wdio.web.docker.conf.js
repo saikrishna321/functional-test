@@ -5,9 +5,7 @@ const webConf = {
   ...config,
   hostname: 'localhost',
   baseUrl: 'http://the-internet.herokuapp.com',
-  services: [
-    ...config.services,
-  ],
+  services: [...config.services],
   specs: ['./src/test/web.*.spec.js'],
   capabilities: [
     {
