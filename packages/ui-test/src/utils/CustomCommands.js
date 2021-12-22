@@ -1,47 +1,47 @@
 const platformKeyMap = {
   web: 'web',
   android: 'droid',
-  ios: 'ios',
-};
+  ios: 'ios'
+}
 
 browser.overwriteCommand('$', ($, selector) => {
-  let element;
+  let element
   if (typeof selector === 'string') {
-    element = $(selector);
+    element = $(selector)
   } else {
-    element = $(getSelectorByPlatform(selector));
+    element = $(getSelectorByPlatform(selector))
   }
-  return element;
-});
+  return element
+})
 
 browser.overwriteCommand('$$', ($$, selector) => {
-  let element;
+  let element
   if (typeof selector === 'string') {
-    element = $$(selector);
+    element = $$(selector)
   } else {
-    element = $$(getSelectorByPlatform(selector));
+    element = $$(getSelectorByPlatform(selector))
   }
-  return element;
-});
+  return element
+})
 
 /**
  * Gets platform specfic selector.
  * @param {*} selector
  * @return {string} Platform specific selector.
  */
-function getSelectorByPlatform(selector) {
-  const platform = getPlatform();
-  const platformKey = validateAndGetPlatformKey(platform);
-  return selector[platformKey];
+function getSelectorByPlatform (selector) {
+  const platform = getPlatform()
+  const platformKey = validateAndGetPlatformKey(platform)
+  return selector[platformKey]
 }
 
 /**
  * Gets current platform.
  * @return {string} platform
  */
-function getPlatform() {
-  if (!driver.isMobile) return 'web';
-  return driver.isIOS ? 'ios' : 'android';
+function getPlatform () {
+  if (!driver.isMobile) return 'web'
+  return driver.isIOS ? 'ios' : 'android'
 }
 
 /**
@@ -49,10 +49,10 @@ function getPlatform() {
  * @param {string} platform
  * @return {string} key
  */
-function validateAndGetPlatformKey(platform) {
-  const platformKey = platformKeyMap[platform];
+function validateAndGetPlatformKey (platform) {
+  const platformKey = platformKeyMap[platform]
   if (!platformKey) {
-    throw new Error(`Selector not set for ${platform} platform.`);
+    throw new Error(`Selector not set for ${platform} platform.`)
   }
-  return platformKey;
+  return platformKey
 }

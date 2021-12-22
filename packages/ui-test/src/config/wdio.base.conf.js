@@ -1,19 +1,19 @@
-require('global-agent/bootstrap');
-const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
+require('global-agent/bootstrap')
+const { TimelineService } = require('wdio-timeline-reporter/timeline-service')
 
-const maxInstances = 1;
-const mochaTimeout = 60000;
-const waitTimeout = 10000;
-const retryTimeout = 120000;
-const retryCount = 3;
-const logPath = './logs';
-const logType = 'trace';
-const bailCount = 0;
-const reportPath = 'report';
-const browserSize = '1366x1024';
-const implicit = 1000;
-const pageLoad = 60000;
-const scriptLoad = 60000;
+const maxInstances = 1
+const mochaTimeout = 60000
+const waitTimeout = 10000
+const retryTimeout = 120000
+const retryCount = 3
+const logPath = './logs'
+const logType = 'trace'
+const bailCount = 0
+const reportPath = 'report'
+const browserSize = '1366x1024'
+const implicit = 1000
+const pageLoad = 60000
+const scriptLoad = 60000
 
 /**
  * Sets Browser options.
@@ -22,17 +22,17 @@ const scriptLoad = 60000;
  * @param {int} pageWait
  * @param {int} scriptWait
  */
-function setBrowserOptions(windowSize, implicitWait, pageWait, scriptWait) {
+function setBrowserOptions (windowSize, implicitWait, pageWait, scriptWait) {
   if (!driver.isMobile) {
-    browser.setTimeouts(implicitWait, pageWait, scriptWait);
-    const size = windowSize.split('x');
-    browser.setWindowSize(parseInt(size[0]), parseInt(size[1]));
+    browser.setTimeouts(implicitWait, pageWait, scriptWait)
+    const size = windowSize.split('x')
+    browser.setWindowSize(parseInt(size[0]), parseInt(size[1]))
   } else {
-    browser.setImplicitTimeout(implicitWait);
+    browser.setImplicitTimeout(implicitWait)
   }
 }
 
-exports.logPath = logPath;
+exports.logPath = logPath
 exports.config = {
   runner: 'local',
   path: '/wd/hub',
@@ -47,7 +47,7 @@ exports.config = {
   mochaOpts: {
     require: ['@babel/register'],
     ui: 'bdd',
-    timeout: mochaTimeout,
+    timeout: mochaTimeout
   },
 
   reporters: [
@@ -58,9 +58,9 @@ exports.config = {
         outputDir: reportPath,
         embedImages: true,
         fileName: 'timeline-report.html',
-        screenshotStrategy: 'before:click',
-      },
-    ],
+        screenshotStrategy: 'before:click'
+      }
+    ]
   ],
 
   services: [[TimelineService]],
@@ -73,7 +73,7 @@ exports.config = {
    * @param {Object}         browser      instance of created browser/device session
    */
   before: function (capabilities, specs) {
-    setBrowserOptions(browserSize, implicit, pageLoad, scriptLoad);
-    require('../utils/CustomCommands');
-  },
-};
+    setBrowserOptions(browserSize, implicit, pageLoad, scriptLoad)
+    require('../utils/CustomCommands')
+  }
+}

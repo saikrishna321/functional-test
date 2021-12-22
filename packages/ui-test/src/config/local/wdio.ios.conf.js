@@ -1,12 +1,12 @@
-const { config, logPath } = require('../wdio.base.conf');
+const { config, logPath } = require('../wdio.base.conf')
 
-const host = 'localhost';
-const port = 4725;
-const deviceName = process.env.IOS_DEVICE || 'iPhone 12';
-const deviceVersion = process.env.IOS_VERSION || '14.4';
-const isHeadless = process.env.HEADLESS || false;
-const appPath = './apps/ios-demo-app.app.zip';
-const commandTimeout = 30000;
+const host = 'localhost'
+const port = 4725
+const deviceName = process.env.IOS_DEVICE || 'iPhone 12'
+const deviceVersion = process.env.IOS_VERSION || '14.4'
+const isHeadless = process.env.HEADLESS || false
+const appPath = './apps/ios-demo-app.app.zip'
+const commandTimeout = 30000
 
 const iosConf = {
   ...config,
@@ -23,10 +23,10 @@ const iosConf = {
           commandTimeout: commandTimeout,
           sessionOverride: true,
           debugLogSpacing: true,
-          logLevel: 'debug',
-        },
-      },
-    ],
+          logLevel: 'debug'
+        }
+      }
+    ]
   ],
   hostname: host,
   port: port,
@@ -39,9 +39,9 @@ const iosConf = {
       'appium:deviceName': deviceName,
       'appium:app': appPath,
       'appium:automationName': 'XCUITest',
-      'appium:isHeadless': isHeadless,
-    },
-  ],
-};
+      'appium:isHeadless': isHeadless
+    }
+  ]
+}
 
-exports.config = iosConf;
+exports.config = iosConf

@@ -1,4 +1,4 @@
-let SCREEN_SIZE;
+let SCREEN_SIZE
 
 /**
  * The values in the below object are percentages of the screen
@@ -7,44 +7,44 @@ const SWIPE_DIRECTION = {
   down: {
     start: {
       x: 50,
-      y: 15,
+      y: 15
     },
     end: {
       x: 50,
-      y: 85,
-    },
+      y: 85
+    }
   },
   left: {
     start: {
       x: 95,
-      y: 50,
+      y: 50
     },
     end: {
       x: 5,
-      y: 50,
-    },
+      y: 50
+    }
   },
   right: {
     start: {
       x: 5,
-      y: 50,
+      y: 50
     },
     end: {
       x: 95,
-      y: 50,
-    },
+      y: 50
+    }
   },
   up: {
     start: {
       x: 50,
-      y: 85,
+      y: 85
     },
     end: {
       x: 50,
-      y: 15,
-    },
-  },
-};
+      y: 15
+    }
+  }
+}
 
 /**
  * Gestures class for Mobile to do swipe gestures on device.
@@ -58,21 +58,21 @@ class Gestures {
    * @param {element} element
    * @param {object} options
    */
-  static checkIfDisplayedWithScrollDown(element, options) {
+  static checkIfDisplayedWithScrollDown (element, options) {
     if (
       (!element.isExisting() || !element.isDisplayed()) &&
       options.amount <= options.maxScrolls
     ) {
-      this.swipeUp(options.percent);
+      this.swipeUp(options.percent)
       this.checkIfDisplayedWithScrollDown(element, {
         maxScrolls: options.maxScrolls,
         percent: options.percent,
-        amount: options.amount + 1,
-      });
+        amount: options.amount + 1
+      })
     } else if (options.amount > options.maxScrolls) {
       throw new Error(
         `The element '${element.selector}' could not be found or is not visible.`
-      );
+      )
     }
   }
 
@@ -81,11 +81,11 @@ class Gestures {
    *
    * @param {number} percentage from 0 - 1
    */
-  static swipeDown(percentage = 1) {
+  static swipeDown (percentage = 1) {
     this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.down.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.down.end, percentage)
-    );
+    )
   }
 
   /**
@@ -93,11 +93,11 @@ class Gestures {
    *
    * @param {number} percentage from 0 - 1
    */
-  static swipeUp(percentage = 1) {
+  static swipeUp (percentage = 1) {
     this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.up.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.up.end, percentage)
-    );
+    )
   }
 
   /**
@@ -105,11 +105,11 @@ class Gestures {
    *
    * @param {number} percentage from 0 - 1
    */
-  static swipeLeft(percentage = 1) {
+  static swipeLeft (percentage = 1) {
     this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.left.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.left.end, percentage)
-    );
+    )
   }
 
   /**
@@ -117,11 +117,11 @@ class Gestures {
    *
    * @param {number} percentage from 0 - 1
    */
-  static swipeRight(percentage = 1) {
+  static swipeRight (percentage = 1) {
     this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.right.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.right.end, percentage)
-    );
+    )
   }
 
   /**
@@ -138,14 +138,14 @@ class Gestures {
    *   const to = { x: 25, y:50 }
    * </pre>
    */
-  static swipeOnPercentage(from, to) {
-    SCREEN_SIZE = SCREEN_SIZE || driver.getWindowRect();
-    const pressOptions = this._getDeviceScreenCoordinates(SCREEN_SIZE, from);
+  static swipeOnPercentage (from, to) {
+    SCREEN_SIZE = SCREEN_SIZE || driver.getWindowRect()
+    const pressOptions = this._getDeviceScreenCoordinates(SCREEN_SIZE, from)
     const moveToScreenCoordinates = this._getDeviceScreenCoordinates(
       SCREEN_SIZE,
       to
-    );
-    this.swipe(pressOptions, moveToScreenCoordinates);
+    )
+    this.swipe(pressOptions, moveToScreenCoordinates)
   }
 
   /**
@@ -161,26 +161,26 @@ class Gestures {
    *   const to = { x: 25, y:50 }
    * </pre>
    */
-  static swipe(from, to) {
+  static swipe (from, to) {
     driver.touchPerform([
       {
         action: 'press',
-        options: from,
+        options: from
       },
       {
         action: 'wait',
         options: {
-          ms: 1000,
-        },
+          ms: 1000
+        }
       },
       {
         action: 'moveTo',
-        options: to,
+        options: to
       },
       {
-        action: 'release',
-      },
-    ]);
+        action: 'release'
+      }
+    ])
   }
 
   /**
@@ -193,11 +193,11 @@ class Gestures {
    *
    * @private
    */
-  static _getDeviceScreenCoordinates(screenSize, coordinates) {
+  static _getDeviceScreenCoordinates (screenSize, coordinates) {
     return {
       x: Math.round(screenSize.width * (coordinates.x / 100)),
-      y: Math.round(screenSize.height * (coordinates.y / 100)),
-    };
+      y: Math.round(screenSize.height * (coordinates.y / 100))
+    }
   }
 
   /**
@@ -210,12 +210,12 @@ class Gestures {
    *
    * @private
    */
-  static _calculateXY({ x, y }, percentage) {
+  static _calculateXY ({ x, y }, percentage) {
     return {
       x: x * percentage,
-      y: y * percentage,
-    };
+      y: y * percentage
+    }
   }
 }
 
-export default Gestures;
+export default Gestures
