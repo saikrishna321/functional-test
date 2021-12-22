@@ -1,5 +1,5 @@
-const { config } = require('../wdio.base.conf')
-const driverLogs = 'wdio-chromedriver.log'
+const { config } = require('../wdio.base.conf');
+const driverLogs = 'wdio-chromedriver.log';
 
 const webConf = {
   ...config,
@@ -11,9 +11,9 @@ const webConf = {
       'chromedriver',
       {
         logFileName: driverLogs,
-        args: ['--silent']
-      }
-    ]
+        args: ['--silent'],
+      },
+    ],
   ],
   specs: ['./src/test/web.*.spec.js'],
   capabilities: [
@@ -22,10 +22,10 @@ const webConf = {
       proxy: {
         proxyType: 'manual',
         httpProxy: process.env.HTTP_PROXY,
-        noProxy: process.env.NO_PROXY
-      }
-    }
-  ]
-}
+        noProxy: process.env.NO_PROXY,
+      },
+    },
+  ],
+};
 
-exports.config = webConf
+exports.config = webConf;

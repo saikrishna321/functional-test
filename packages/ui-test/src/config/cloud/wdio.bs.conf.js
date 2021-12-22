@@ -1,36 +1,36 @@
-const { config } = require('../wdio.base.conf')
+const { config } = require('../wdio.base.conf');
 
-const cloudUser = process.env.BROWSERSTACK_USER
-const cloudKey = process.env.BROWSERSTACK_ACCESS_KEY
-const localTunnel = process.env.LOCAL_TUNNEL || false
-const localIdentifier = process.env.TUNNEL_ID || 'Tunnel-ID'
-const projectId = 'Project Name'
-const buildId = 'Build Id'
-const testName = 'Test Name'
-const video = true
-const networkLogs = true
-const debug = true
+const cloudUser = process.env.BROWSERSTACK_USER;
+const cloudKey = process.env.BROWSERSTACK_ACCESS_KEY;
+const localTunnel = process.env.LOCAL_TUNNEL || false;
+const localIdentifier = process.env.TUNNEL_ID || 'Tunnel-ID';
+const projectId = 'Project Name';
+const buildId = 'Build Id';
+const testName = 'Test Name';
+const video = true;
+const networkLogs = true;
+const debug = true;
 
 /**
  * Checks value and throw Error when value is null.
  * @param {*} value
  * @param {*} message
  */
-function checkValueNotNull (value, message) {
+function checkValueNotNull(value, message) {
   if (!value) {
-    throw new Error(message)
+    throw new Error(message);
   }
 }
 
 /**
  * Checks cloud setup.
  */
-function validateCloudSetup () {
-  checkValueNotNull(cloudUser, 'Cloud user not set.')
-  checkValueNotNull(cloudKey, 'Cloud key not set.')
+function validateCloudSetup() {
+  checkValueNotNull(cloudUser, 'Cloud user not set.');
+  checkValueNotNull(cloudKey, 'Cloud key not set.');
 }
 
-validateCloudSetup()
+validateCloudSetup();
 
 const bsConfig = {
   ...config,
@@ -47,10 +47,10 @@ const bsConfig = {
       'browserstack.networkLogs': networkLogs,
       'browserstack.debug': debug,
       'browserstack.console': 'verbose',
-      excludeDriverLogs: ['*']
-    }
-  ]
-}
+      excludeDriverLogs: ['*'],
+    },
+  ],
+};
 
-exports.config = bsConfig
-exports.checkValueNotNull = checkValueNotNull
+exports.config = bsConfig;
+exports.checkValueNotNull = checkValueNotNull;

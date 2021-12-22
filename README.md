@@ -15,6 +15,3 @@
 * npm run test:ui:web:docker
 * *
 ```
-
-
-

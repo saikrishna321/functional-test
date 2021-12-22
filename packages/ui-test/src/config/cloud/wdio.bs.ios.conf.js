@@ -1,22 +1,22 @@
-const { config, checkValueNotNull } = require('./wdio.bs.conf')
+const { config, checkValueNotNull } = require('./wdio.bs.conf');
 
-const deviceName = process.env.DEVICE_NAME || 'iPhone 12'
-const deviceVersion = process.env.DEVICE_VERSION || '14'
-const appUrl = process.env.APP_URL
-const appiumVersion = '1.19.1'
-const acceptCerts = false
-const deviceLogs = true
-const appiumLogs = true
-const disableAnimations = true
+const deviceName = process.env.DEVICE_NAME || 'iPhone 12';
+const deviceVersion = process.env.DEVICE_VERSION || '14';
+const appUrl = process.env.APP_URL;
+const appiumVersion = '1.19.1';
+const acceptCerts = false;
+const deviceLogs = true;
+const appiumLogs = true;
+const disableAnimations = true;
 
 /**
  * Checks cloud setup.
  */
-function validateCloudSetup () {
-  checkValueNotNull(appUrl, 'App URL not set.')
+function validateCloudSetup() {
+  checkValueNotNull(appUrl, 'App URL not set.');
 }
 
-validateCloudSetup()
+validateCloudSetup();
 
 const iosConf = {
   ...config,
@@ -35,9 +35,9 @@ const iosConf = {
       'browserstack.acceptInsecureCerts': acceptCerts,
       'browserstack.deviceLogs': deviceLogs,
       'browserstack.appiumLogs': appiumLogs,
-      disableAnimations: disableAnimations
-    }
-  ]
-}
+      disableAnimations: disableAnimations,
+    },
+  ],
+};
 
-exports.config = iosConf
+exports.config = iosConf;
