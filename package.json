@@ -15,7 +15,7 @@
     "test:bff:schema": "lerna exec --scope bff-test npm run test-schema",
     "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,css,scss,md}' --write --single-quote",
     "test": "lerna run test -- ",
-    "prepare": "husky install"
+    "prepare": "husky install && npx husky add .husky/pre-commit \"npm run lint-staged\""
   },
   "repository": {
     "type": "git",
