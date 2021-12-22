@@ -1,17 +1,17 @@
 const selectors = {
   link: (linkText) => {
     return {
-      web: `=${linkText}`
-    }
-  }
-}
+      web: `=${linkText}`,
+    };
+  },
+};
 
 export const MainPage = {
-  loadPage () {
-    browser.url('/')
-    return this
+  loadPage() {
+    browser.url('/');
+    return this;
   },
-  openLink (linkText) {
-    $(selectors.link(linkText)).click()
-  }
-}
+  openLink(linkText) {
+    $(selectors.link(linkText)).click();
+  },
+};

@@ -1,46 +1,46 @@
-import AppScreen from './AppScreen'
+import AppScreen from './AppScreen';
 
 const selectors = {
   home: {
     droid: '~Home',
-    ios: '~Home'
+    ios: '~Home',
   },
   webView: {
     droid: '~WebView',
-    ios: '~WebView'
+    ios: '~WebView',
   },
   login: {
     droid: '~Login',
-    ios: '~Login'
+    ios: '~Login',
   },
   form: {
     droid: '~Forms',
-    ios: '~Forms'
+    ios: '~Forms',
   },
   swipe: {
     droid: '~Swipe',
-    ios: '~Swipe'
-  }
-}
+    ios: '~Swipe',
+  },
+};
 
 export default class BasePage extends AppScreen {
-  openHome () {
-    $(selectors.home).click()
+  openHome() {
+    $(selectors.home).click();
   }
 
-  openWebView () {
-    $(selectors.webView).click()
+  openWebView() {
+    $(selectors.webView).click();
   }
 
-  async openLogin () {
-    await $(selectors.login).click()
+  async openLogin() {
+    await $(selectors.login).click();
   }
 
-  openForm () {
-    $(selectors.form).click()
+  openForm() {
+    $(selectors.form).click();
   }
 
-  openSwipe () {
-    $(selectors.swipe).click()
+  openSwipe() {
+    $(selectors.swipe).click();
   }
 }
