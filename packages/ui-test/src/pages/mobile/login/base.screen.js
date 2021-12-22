@@ -1,4 +1,4 @@
-import AppScreen from './AppScreen';
+import AppScreen from '../AppScreen'
 
 const selectors = {
   home: {
@@ -23,9 +23,9 @@ const selectors = {
   },
 };
 
-export default class BasePage extends AppScreen {
-  openHome() {
-    $(selectors.home).click();
+class BaseScreen extends AppScreen {
+  openHome () {
+    $(selectors.home).click()
   }
 
   openWebView() {
@@ -44,3 +44,5 @@ export default class BasePage extends AppScreen {
     $(selectors.swipe).click();
   }
 }
+
+export default new BaseScreen();

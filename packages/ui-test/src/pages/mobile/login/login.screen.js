@@ -1,9 +1,9 @@
-import { AlertPopup } from '../wealth/alert.popup';
-import BasePage from '../base.page';
+import { AlertPopup } from '../wealth/alert.popup'
+import AppScreen from "../AppScreen";
 
-class LoginPage extends BasePage {
-  constructor() {
-    super('~Login-screen');
+class LoginScreen extends AppScreen {
+  constructor () {
+    super('~Login-screen')
   }
 
   get userEmail() {
@@ -55,4 +55,4 @@ class LoginPage extends BasePage {
   }
 }
 
-export default new LoginPage();
+export default new LoginScreen()
