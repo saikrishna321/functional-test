@@ -10,7 +10,7 @@ it('Should return empty breakingChanges array when no schema diff found', async 
     'utf8'
   )
   const { breakingChanges } = await findSchemaDiff(
-    process.env.URL || 'https://snowtooth.moonhighway.com/graphql',
+    process.env.URLLL || 'https://snowtooth.moonhighway.com/graphql',
     {
       Accept: 'application/json',
       'Content-Type': 'application/json'
