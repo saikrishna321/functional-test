@@ -32,23 +32,23 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.7",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^12.20.34",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^5.2.0",
     "esm": "^3.2.25",
     "husky": "^7.0.1",
     "lint-staged": "^11.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "ts-node": "^10.3.1",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.4",
+    "eslint-plugin-wdio": "^7.0.0"
   },
   "lint-staged": {
     "packages/**/*.{js,ts,tsx,css,scss,md}": [

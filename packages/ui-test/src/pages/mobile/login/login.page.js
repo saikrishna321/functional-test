@@ -1,52 +1,58 @@
-import { AlertPopup } from '../wealth/alert.popup';
-import BasePage from '../wealth/base.page';
+import { AlertPopup } from '../wealth/alert.popup'
+import BasePage from '../base.page'
 
 class LoginPage extends BasePage {
-  constructor() {
-    super('~Login-screen');
+  constructor () {
+    super('~Login-screen')
   }
 
-  get userEmail() {
+  get userEmail () {
     return $({
       droid: '~input-email',
-      ios: '~input-email',
-    });
-  }
-  get password() {
-    return $('~input-password');
-  }
-  get confirmPassword() {
-    return $('~input-repeat-password');
-  }
-  get signUpButton() {
-    return $('~button-SIGN UP');
-  }
-  get loginButton() {
-    return $('~button-LOGIN');
-  }
-  get loginTab() {
-    return $('~button-login-container');
-  }
-  get signUpTab() {
-    return $('~button-sign-up-container');
+      ios: '~input-email'
+    })
   }
 
-  async login(email, password) {
-    await this.loginTab.click();
-    await this.userEmail.setValue(email);
-    await this.password.setValue(password);
-    await this.loginButton.click();
-    const message = AlertPopup.pressButton('OK');
-    expect(message).toEqual('Success\nYou are logged in!');
+  get password () {
+    return $('~input-password')
   }
 
-  async signUp(email, password) {
-    await this.signUpTab.click();
-    await this.userEmail.setValue(email);
-    await this.password.setValue(password);
-    await this.confirmPassword.setValue(password);
-    await this.signUpButton.click();
+  get confirmPassword () {
+    return $('~input-repeat-password')
+  }
+
+  get signUpButton () {
+    return $('~button-SIGN UP')
+  }
+
+  get loginButton () {
+    return $('~button-LOGIN')
+  }
+
+  get loginTab () {
+    return $('~button-login-container')
+  }
+
+  get signUpTab () {
+    return $('~button-sign-up-container')
+  }
+
+  async login (email, password) {
+    await this.loginTab.click()
+    await this.userEmail.setValue(email)
+    await this.password.setValue(password)
+    await this.loginButton.click()
+    const message = AlertPopup.pressButton('OK')
+    expect(message).toEqual('Success\nYou are logged in!')
+  }
+
+  async signUp (email, password) {
+    await this.signUpTab.click()
+    await this.userEmail.setValue(email)
+    await this.password.setValue(password)
+    await this.confirmPassword.setValue(password)
+    await this.signUpButton.click()
   }
 }
 
-export default new LoginPage();
+export default new LoginPage()

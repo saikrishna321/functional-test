@@ -1,8 +1,6 @@
-import BasePage from './wealth/base.page';
-
 export default class AppScreen {
-  constructor(selector) {
-    this.selector = selector;
+  constructor (selector) {
+    this.selector = selector
   }
 
   /**
@@ -10,10 +8,10 @@ export default class AppScreen {
    *
    * @param {boolean} isShown
    */
-  async waitForIsShown(isShown = true) {
-    console.log('Inside Wait');
+  async waitForIsShown (isShown = true) {
+    console.log('Inside Wait')
     return $(this.selector).waitForDisplayed({
-      reverse: !isShown,
-    });
+      reverse: !isShown
+    })
   }
 }

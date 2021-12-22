@@ -18,6 +18,7 @@
     "aftertest": "npm run selenoid:cleanup && npm run selenoid:stop && npm run selenoid:cleanup",
     "web": "npx wdio ./src/config/local/wdio.web.conf.js",
     "web:docker": "npx wdio ./src/config/local/wdio.web.docker.conf.js && npm run aftertest",
+    "postinstall": "(npx appium driver install uiautomator2 || exit 0) && (npx appium driver install xcuitest || exit 0)",
     "android": "npx wdio ./src/config/local/wdio.android.conf.js",
     "ios": "npx wdio ./src/config/local/wdio.ios.conf.js",
     "cloud:android": "npx wdio ./src/config/cloud/wdio.bs.android.conf.js",
@@ -38,14 +39,14 @@
     "eslint-plugin-chai-expect": "^2.2.0",
     "eslint-plugin-chai-friendly": "^0.6.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-wdio": "^7.0.0",
     "global-agent": "^2.2.0",
     "husky": "^6.0.0",
     "pinst": "^2.1.6",
     "wdio-chromedriver-service": "^7.0.0",
     "wdio-timeline-reporter": "^5.1.4",
     "webdriverio": "^7.3.0",
-    "sc-utils": "1.0.0"
+    "sc-utils": "1.0.0",
+    "appium": "2.0.0-beta.23"
   },
   "author": "",
   "license": "ISC"

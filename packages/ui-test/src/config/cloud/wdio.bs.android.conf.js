@@ -1,22 +1,22 @@
-const { config, checkValueNotNull } = require('./wdio.bs.conf');
+const { config, checkValueNotNull } = require('./wdio.bs.conf')
 
-const deviceName = process.env.DEVICE_NAME || 'Google Pixel 3';
-const deviceVersion = process.env.DEVICE_VERSION || '10.0';
-const appUrl = process.env.APP_URL;
-const appiumVersion = '1.19.1';
-const acceptCerts = false;
-const deviceLogs = true;
-const appiumLogs = true;
-const disableAnimations = true;
+const deviceName = process.env.DEVICE_NAME || 'Google Pixel 3'
+const deviceVersion = process.env.DEVICE_VERSION || '10.0'
+const appUrl = process.env.APP_URL
+const appiumVersion = '1.19.1'
+const acceptCerts = false
+const deviceLogs = true
+const appiumLogs = true
+const disableAnimations = true
 
 /**
  * Checks cloud setup.
  */
-function validateCloudSetup() {
-  checkValueNotNull(appUrl, 'App URL not set.');
+function validateCloudSetup () {
+  checkValueNotNull(appUrl, 'App URL not set.')
 }
 
-validateCloudSetup();
+validateCloudSetup()
 
 const androidConf = {
   ...config,
@@ -36,9 +36,9 @@ const androidConf = {
       'browserstack.deviceLogs': deviceLogs,
       'browserstack.appiumLogs': appiumLogs,
       disableAnimations: disableAnimations,
-      'appium:autoGrantPermissions': true,
-    },
-  ],
-};
+      'appium:autoGrantPermissions': true
+    }
+  ]
+}
 
-exports.config = androidConf;
+exports.config = androidConf
