@@ -9,8 +9,8 @@ const launchTimeout = 120000
 const readyTimeout = 120000
 // const commandTimeout = 30000
 const isHeadless = process.env.HEADLESS || false
-const appPath = './apps/android-demo-app.apk'
 const appiumPath = path.join(__dirname, '../../../node_modules/.bin', 'appium')
+const appPath = path.join(__dirname, '../../../apps', 'android-demo-app.apk')
 console.log(appiumPath)
 
 const droidConf = {
@@ -24,7 +24,7 @@ const droidConf = {
         logPath,
         args: {
           debugLogSpacing: true,
-          logLevel: 'info'
+          logLevel: 'debug'
         }
       }
     ]
