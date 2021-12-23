@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "run-s clean:* && npm install && npm run bootstrap",
-    "clean:build": "rimraf packages/*/node_modules && rimraf .husky",
+    "build": "npm install && npm run bootstrap",
+    "clean": "rimraf packages/*/node_modules && rimraf .husky && rimraf packages/*/logs",
+    "clean:build": "npm run clean && npm run build",
     "bootstrap": "lerna bootstrap --no-ci",
     "lint": "eslint '**/*.{js,ts}' --fix",
     "test:ui:web:docker": "lerna exec --scope ui-test npm run web:docker",
