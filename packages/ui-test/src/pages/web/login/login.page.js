@@ -1,30 +1,30 @@
-import { SecurePage } from '../wealth/secure.page'
+import { SecurePage } from '../wealth/secure.page';
 
 const selectors = {
   userName: {
-    web: '#username'
+    web: '#username',
   },
   password: {
-    web: '#password'
+    web: '#password',
   },
   successMessage: {
-    web: 'div.success'
+    web: 'div.success',
   },
   login: {
-    web: 'button'
-  }
-}
+    web: 'button',
+  },
+};
 export const LoginPage = {
-  validateMessage () {
+  validateMessage() {
     expect($(selectors.successMessage)).toHaveTextContaining(
       'You logged out of the secure area!'
-    )
-    return this
+    );
+    return this;
   },
-  login (userName, password) {
-    $(selectors.userName).setValue(userName)
-    $(selectors.password).setValue(password)
-    $(selectors.login).click()
-    return SecurePage
-  }
-}
+  login(userName, password) {
+    $(selectors.userName).setValue(userName);
+    $(selectors.password).setValue(password);
+    $(selectors.login).click();
+    return SecurePage;
+  },
+};

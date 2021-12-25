@@ -1,4 +1,4 @@
-const { config } = require('../wdio.base.conf')
+const { config } = require('../wdio.base.conf');
 // const driverLogs = 'wdio-chromedriver.log'
 
 const webConf = {
@@ -13,10 +13,10 @@ const webConf = {
       proxy: {
         proxyType: 'manual',
         httpProxy: process.env.HTTP_PROXY,
-        noProxy: process.env.NO_PROXY
-      }
-    }
-  ]
-}
+        noProxy: process.env.NO_PROXY,
+      },
+    },
+  ],
+};
 
-exports.config = webConf
+exports.config = webConf;

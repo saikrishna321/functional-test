@@ -1,7 +1,7 @@
 class Beta {
-  async add (num1, num2) {
-    return num1 + num2
+  async add(num1, num2) {
+    return num1 + num2;
   }
 }
 
-module.exports.Beta = Beta
+module.exports.Beta = Beta;
