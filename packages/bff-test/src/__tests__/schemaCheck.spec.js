@@ -1,8 +1,7 @@
 import { findSchemaDiff } from '../index';
 import { expect } from 'chai';
-
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 describe('Schema Test', function () {
   it('Should return empty breakingChanges array when no schema diff found', async function () {

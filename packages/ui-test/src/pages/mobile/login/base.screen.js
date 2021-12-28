@@ -23,7 +23,7 @@ const selectors = {
   },
 };
 
-class BaseScreen extends AppScreen {
+class TabBar extends AppScreen {
   openHome() {
     $(selectors.home).click();
   }
@@ -45,4 +45,4 @@ class BaseScreen extends AppScreen {
   }
 }
 
-export default new BaseScreen();
+export default new TabBar();

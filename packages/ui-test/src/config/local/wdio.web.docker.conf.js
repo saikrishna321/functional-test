@@ -1,6 +1,4 @@
 const { config } = require('../wdio.base.conf');
-// const driverLogs = 'wdio-chromedriver.log'
-
 const webConf = {
   ...config,
   hostname: 'localhost',

@@ -1,6 +1,4 @@
 require('global-agent/bootstrap');
-const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
-
 const maxInstances = 1;
 const mochaTimeout = 60000;
 const waitTimeout = 10000;
@@ -9,7 +7,6 @@ const retryCount = 3;
 const logPath = './logs';
 const logType = 'trace';
 const bailCount = 0;
-const reportPath = 'report';
 const browserSize = '1366x1024';
 const implicit = 1000;
 const pageLoad = 60000;
@@ -42,28 +39,14 @@ exports.config = {
   waitforTimeout: waitTimeout,
   connectionRetryTimeout: retryTimeout,
   connectionRetryCount: retryCount,
-
+  outputDir: logPath,
   framework: 'mocha',
   mochaOpts: {
     require: ['@babel/register'],
     ui: 'bdd',
     timeout: mochaTimeout,
   },
-
-  reporters: [
-    'spec',
-    [
-      'timeline',
-      {
-        outputDir: reportPath,
-        embedImages: true,
-        fileName: 'timeline-report.html',
-        screenshotStrategy: 'before:click',
-      },
-    ],
-  ],
-
-  services: [[TimelineService]],
+  services: [],
 
   /**
    * Gets executed before test execution begins. At this point you can access to all global
@@ -72,7 +55,7 @@ exports.config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {Object}         browser      instance of created browser/device session
    */
-  before: function (capabilities, specs) {
+  before: function () {
     setBrowserOptions(browserSize, implicit, pageLoad, scriptLoad);
     require('../utils/CustomCommands');
   },

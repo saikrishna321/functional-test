@@ -3,12 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
     mocha: true,
+    node: true,
   },
   plugins: ['wdio', 'chai-friendly'],
   extends: [
-    'standard',
     'eslint:recommended',
     'plugin:wdio/recommended',
+    'plugin:mocha/recommended',
     'plugin:chai-friendly/recommended',
   ],
   parserOptions: {
