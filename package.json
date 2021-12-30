@@ -16,7 +16,8 @@
     "test:bff:schema": "lerna exec --scope bff-test npm run test-schema",
     "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,css,scss,md}' --write --single-quote",
     "test": "lerna run test -- ",
-    "prepare": "husky install && npx husky add .husky/pre-commit \"npm run prettier && npm run lint && git add .\""
+    "prepare": "husky install && npx husky add .husky/pre-commit \"npm run prettier && npm run lint && git add .\"",
+    "perf:delta:local": "cd packages/delta-perf-test; ./run.sh"
   },
   "repository": {
     "type": "git",
